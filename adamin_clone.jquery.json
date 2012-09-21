@@ -1,0 +1,33 @@
+{
+  "name": "adamin_clone",
+  "title": "Adamin Clone",
+  "description": "Easy cloning plugins for quick mocking.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/pensive612/Adamin-Clone",
+  "author": {
+    "name": "Adam L.",
+    "email": "git@adamin.net",
+    "url": "http://www.adamin.net"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pensive612/Adamin-Clone.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pensive612/Adamin-Clone/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/pensive612/Adamin-Clone/blob/master/LICENSE-MIT"
+    },
+    {
+      "type": "GPL",
+      "url": "https://github.com/pensive612/Adamin-Clone/blob/master/LICENSE-GPL"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">= 1.6"
+  },
+  "keywords": []
+}
