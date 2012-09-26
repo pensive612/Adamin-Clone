@@ -8,21 +8,20 @@
 
 (function($) {
 
-  // Collection method.
-  $.fn.awesome = function() {
+  var adaminClone = {
+    init: function(el, config) {
+      this.config = $.extend({}, $.fn.adaminClone.defaults, config);
+
+      this.el = el;
+      this.$el = $(el);
+    }
+  };
+
+  $.fn.adaminClone = function(config) {
+    var obj = Object.create(adaminClone);
     return this.each(function() {
-      $(this).html('awesome');
+      obj.init(this, config);
     });
-  };
-
-  // Static method.
-  $.awesome = function() {
-    return 'awesome';
-  };
-
-  // Custom selector.
-  $.expr[':'].awesome = function(elem) {
-    return elem.textContent.indexOf('awesome') >= 0;
   };
 
 }(jQuery));
