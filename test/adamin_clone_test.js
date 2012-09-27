@@ -24,8 +24,9 @@
 
   module('$.fn.adaminClone()', {
     setup: function() {
-      this.testUl = $('.test-li');
-      this.testUl2 = $('.test-li-2');
+      this.testLi = $('.test-li');
+      this.testLiNone = $('.test-li-none');
+      this.testData = $('data-clone');
     }
   });
 
@@ -35,11 +36,34 @@
 
   test('is chainable', 1, function() {
     // Not a bad test to run on collection methods.
-    strictEqual(this.testUl.adaminClone(), this.testUl, 'should be chaninable');
+    strictEqual(this.testData.adaminClone(), this.testData, 'should be chaninable');
   });
 
   test('it should return true if contains valid data-clone attribute', 1, function() {
-    ok(this.testUl.adaminClone());
+    ok(this.testData.adaminClone());
+  });
+
+  test('it should add the correct number of items', 1, function() {
+    var parentContainer = this.testLi.parent();
+    this.testLi.adaminClone();
+    strictEqual(parentContainer.children('li').length, 4, 'should equal 4 items');
+  });
+
+  test('it should not add items if there is no valid data-clone value', 1, function() {
+    var parentContainer = this.testLiNone.parent();
+    this.testLiNone.adaminClone();
+    strictEqual(parentContainer.children('li').length, 1, 'should equal itself only');
+  });
+
+  test('it should add classes to the clones', 1, function() {
+    this.testLi.adaminClone();
+    ok(this.testLi.next().hasClass('clone-1'));
+  });
+
+  test('it should increment the classes of clones', 1, function() {
+    var parentContainer = this.testLi.parent();
+    this.testLi.adaminClone();
+    ok($('li:eq(3)', parentContainer).hasClass('clone-3'));
   });
 
   

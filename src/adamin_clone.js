@@ -21,7 +21,7 @@
     getCloneValue: function(elem) {
 
       var cloneValue = elem.data('clone');
-      cloneValue = parseInt(cloneValue, 10);
+      cloneValue = (parseInt(cloneValue, 10) - 1);
 
 
       if ( cloneValue ) {
@@ -37,7 +37,7 @@
       for (var i = value; i >= 0; i--) {
         elemClone = elem.clone(true);
         elemClone.removeAttr('data-clone');
-        elemClone.addClass('clone-' + i);
+        elemClone.addClass('clone-' + (i + 1));
         elemClone.insertAfter(elem);
       }
     }
