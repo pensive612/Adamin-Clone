@@ -23,7 +23,7 @@
       var cloneValue = elem.data('clone');
 
       // remove anything but numbers in clone value
-      cloneValue = parseInt( cloneValue, 10 );
+      cloneValue = cloneValue.replace(/[^\d]/g, '');
 
       if ( cloneValue ) {
         this.cloneItem(this.$el, cloneValue);
@@ -33,10 +33,14 @@
     },
 
     cloneItem: function(elem, value) {
-      var elemClone = elem.clone(true);
-      elemClone.removeAttr('data-clone');
-      elemClone.insertAfter(elem);
+      var elemClone;
 
+      for (var i = 0; i < value; i++) {
+        elemClone = elem.clone(true);
+        elemClone.removeAttr('data-clone');
+        elemClone.addClass('clone-' + i);
+        elemClone.insertAfter(elem);
+      }
     }
 
   };
