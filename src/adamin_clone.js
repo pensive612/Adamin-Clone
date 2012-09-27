@@ -14,7 +14,31 @@
 
       this.el = el;
       this.$el = $(el);
+
+      this.getCloneValue(this.$el);
+    },
+
+    getCloneValue: function(elem) {
+
+      var cloneValue = elem.data('clone');
+
+      // remove anything but numbers in clone value
+      cloneValue = parseInt( cloneValue, 10 );
+
+      if ( cloneValue ) {
+        this.cloneItem(this.$el, cloneValue);
+      } else {
+        return false;
+      }
+    },
+
+    cloneItem: function(elem, value) {
+      var elemClone = elem.clone(true);
+      elemClone.removeAttr('data-clone');
+      elemClone.insertAfter(elem);
+
     }
+
   };
 
   $.fn.adaminClone = function(config) {

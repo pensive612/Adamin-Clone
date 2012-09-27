@@ -24,7 +24,8 @@
 
   module('$.fn.adaminClone()', {
     setup: function() {
-      this.testUl = $('.test-ul');
+      this.testUl = $('.test-li');
+      this.testUl2 = $('.test-li-2');
     }
   });
 
@@ -35,6 +36,10 @@
   test('is chainable', 1, function() {
     // Not a bad test to run on collection methods.
     strictEqual(this.testUl.adaminClone(), this.testUl, 'should be chaninable');
+  });
+
+  test('it should return true if contains valid data-clone attribute', 1, function() {
+    ok(this.testUl.adaminClone());
   });
 
   
