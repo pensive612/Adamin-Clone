@@ -21,9 +21,8 @@
     getCloneValue: function(elem) {
 
       var cloneValue = elem.data('clone');
+      cloneValue = parseInt(cloneValue, 10);
 
-      // remove anything but numbers in clone value
-      cloneValue = cloneValue.replace(/[^\d]/g, '');
 
       if ( cloneValue ) {
         this.cloneItem(this.$el, cloneValue);
@@ -35,7 +34,7 @@
     cloneItem: function(elem, value) {
       var elemClone;
 
-      for (var i = 0; i < value; i++) {
+      for (var i = value; i >= 0; i--) {
         elemClone = elem.clone(true);
         elemClone.removeAttr('data-clone');
         elemClone.addClass('clone-' + i);
