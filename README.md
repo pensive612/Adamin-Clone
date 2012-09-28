@@ -1,6 +1,18 @@
 # Adamin Clone
 
-Easy cloning plugins for quick mocking.
+The easiest way to clone elements for quick mocking.
+
+I developed this plugin for all the prototyping I do as a front-end developer.  I wanted a really quick way to clone elements.  
+
+Instead of creating 25 ```<li>``` elements in an ```<ul>```, I do this:
+
+```html
+<ul>
+  <li data-clone="25">Test item</li>
+</ul>
+```
+
+It is tested using [qunit](http://qunitjs.com/) and built using [grunt](https://github.com/cowboy/grunt).
 
 ## Getting Started
 Download the [production version][min] or the [development version][max].
@@ -11,54 +23,79 @@ Download the [production version][min] or the [development version][max].
 In your web page:
 
 ```html
-<script src="jquery.js"></script>
-<script src="dist/adamin_clone.min.js"></script>
+<script src="src/jquery.js"></script>
+<script src="src/adamin_clone.min.js"></script>
 <script>
 jQuery(function($) {
-  $.awesome(); // "awesome"
+  $('data-clone').adaminClone(); // "adds plugin to any element that has data-clone attribute"
 });
 </script>
 ```
 
 ## Documentation
-_(Coming soon)_
+This plugin is a utilization of the jquery [.clone()](http://api.jquery.com/clone/) method.  
+
+Currently, the behavior of jQuery .clone() is to clone the element 1 time.  And should be separately prepended/appended to a specified container.
+
+This plugin instead, allows you duplicate the element any number of times, and insert them directly after the cloned element.
+
+You'll notice it also creates enumerated classes if you need to target any specific clones.  Each cloned element should have a class of 'clone-i'. 
+
+It also passes the 'true' argument, so all clones retain any events bound to the original element.
+
+For validation purposes, there is a default 'cap' of amount of times an element can be cloned.  It is set to ```'100'```. This is to prevent accidentally inserting a 1000 elements into the DOM.
+
+However, you can easily override this 'cap' value by changing the defaults of the plugin, or within a data-attribute directly in the element.  
+
+And lastly, you can utilize a callback function after the plugin is run.  
+
+See 'Examples' below for all usage.
 
 ## Examples
-_(Coming soon)_
+##### Standard Implementation
+This will load the plugin and clone any element that has a ```data-clone``` attribute with a number value.
 
-## Release History
-_(Nothing yet)_
+```html
+<script>
+jQuery(function($) {
+  $('data-clone').adaminClone(); // "adds plugin to any element that has data-clone attribute"
+});
+</script>
+
+<!-- now just add a data-clone attribute and number value -->
+<ul class="list-container">
+  <li data-clone="6"></li>
+</ul>
+```
+
+##### Adding a Callback
+You might want to add a callback after the items are cloned.  Here is how:
+
+```javascript
+$('data-clone').adaminClone({}, function() {
+  // Put your callback logic inside the function
+  window.console.log('My items were just cloned!');
+});
+```
+
+##### Overriding the Data-Cap Option
+If you want to clone more than a 100 items to an element.  You need to set a higher clone-cap value.  You can do this in a couple ways.
+
+In the plugin call:
+```javascript
+$('data-clone').adaminClone({
+  cloneCap: 500 // put your new number value here
+});
+```
+
+Or you can do it in the html directly, if its only for 1 item:
+```html
+<li data-clone="120" data-clone-cap='{"cloneCap":"200"}'>My item</li>
+```
 
 ## License
 Copyright (c) 2012 Adam L.  
 Licensed under the MIT, GPL licenses.
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](https://github.com/cowboy/grunt).
-
-### Important notes
-Please don't edit files in the `dist` subdirectory as they are generated via grunt. You'll find source code in the `src` subdirectory!
-
-While grunt can run the included unit tests via PhantomJS, this shouldn't be considered a substitute for the real thing. Please be sure to test the `test/*.html` unit test file(s) in _actual_ browsers.
-
-### Installing grunt
-_This assumes you have [node.js](http://nodejs.org/) and [npm](http://npmjs.org/) installed already._
-
-1. Test that grunt is installed globally by running `grunt --version` at the command-line.
-1. If grunt isn't installed globally, run `npm install -g grunt` to install the latest version. _You may need to run `sudo npm install -g grunt`._
-1. From the root directory of this project, run `npm install` to install the project's dependencies.
-
-### Installing PhantomJS
-
-In order for the qunit task to work properly, [PhantomJS](http://www.phantomjs.org/) must be installed and in the system PATH (if you can run "phantomjs" at the command line, this task should work).
-
-Unfortunately, PhantomJS cannot be installed automatically via npm or grunt, so you need to install it yourself. There are a number of ways to install PhantomJS.
-
-* [PhantomJS and Mac OS X](http://ariya.ofilabs.com/2012/02/phantomjs-and-mac-os-x.html)
-* [PhantomJS Installation](http://code.google.com/p/phantomjs/wiki/Installation) (PhantomJS wiki)
-
-Note that the `phantomjs` executable needs to be in the system `PATH` for grunt to see it.
-
-* [How to set the path and environment variables in Windows](http://www.computerhope.com/issues/ch000549.htm)
-* [Where does $PATH get set in OS X 10.6 Snow Leopard?](http://superuser.com/questions/69130/where-does-path-get-set-in-os-x-10-6-snow-leopard)
-* [How do I change the PATH variable in Linux](https://www.google.com/search?q=How+do+I+change+the+PATH+variable+in+Linux)
+Any pull requests will be happily reviewed.  Please make sure they are tested, documented and use [grunt](https://github.com/cowboy/grunt).
