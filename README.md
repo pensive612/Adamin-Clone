@@ -1,6 +1,29 @@
 # Adamin Clone
 
-The easiest way to clone elements for quick mocking.
+## Getting Started
+Download the [production version][min] or the [development version][max].
+
+[min]: https://raw.github.com/pensive612/adamin_clone/master/dist/adamin_clone.min.js
+[max]: https://raw.github.com/pensive612/adamin_clone/master/dist/adamin_clone.js
+
+In your web page:
+
+```html
+<script src="src/jquery.js"></script>
+<script src="src/adamin_clone.min.js"></script>
+<script>
+  jQuery(function($) {
+    $('data-clone').adaminClone(); // "adds plugin to any element that has data-clone attribute"
+  });
+</script>
+
+<ul>
+  <li data-clone="10">My list item.</li>
+</ul>
+
+```
+
+A really easy way to clone elements for quick mocking.
 
 I developed this plugin for all the prototyping I do as a front-end developer.  I wanted a really quick way to clone elements.  
 
@@ -16,23 +39,6 @@ Although you will most likely only be using this plugin in a mocking/development
 
 It is tested using [qunit](http://qunitjs.com/) and built using [grunt](https://github.com/cowboy/grunt).
 
-## Getting Started
-Download the [production version][min] or the [development version][max].
-
-[min]: https://raw.github.com/pensive612/adamin_clone/master/dist/adamin_clone.min.js
-[max]: https://raw.github.com/pensive612/adamin_clone/master/dist/adamin_clone.js
-
-In your web page:
-
-```html
-<script src="src/jquery.js"></script>
-<script src="src/adamin_clone.min.js"></script>
-<script>
-jQuery(function($) {
-  $('data-clone').adaminClone(); // "adds plugin to any element that has data-clone attribute"
-});
-</script>
-```
 
 ## Documentation
 This plugin is a utilization of the jquery [.clone()](http://api.jquery.com/clone/) method.  
@@ -59,9 +65,9 @@ This will load the plugin and clone any element that has a ```data-clone``` attr
 
 ```html
 <script>
-jQuery(function($) {
-  $('data-clone').adaminClone(); // "adds plugin to any element that has data-clone attribute"
-});
+  jQuery(function($) {
+    $('data-clone').adaminClone(); // "adds plugin to any element that has data-clone attribute"
+  });
 </script>
 
 <!-- now just add a data-clone attribute and number value -->
