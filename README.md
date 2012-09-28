@@ -14,8 +14,8 @@ Instead of creating 25 ```<li>``` elements in a ```<ul>```, I do this:
 ## Getting Started
 Download the [production version][min] or the [development version][max].
 
-[min]: https://raw.github.com/pensive612/adamin_clone/master/dist/adamin_clone.min.js
-[max]: https://raw.github.com/pensive612/adamin_clone/master/dist/adamin_clone.js
+[min]: https://raw.github.com/pensive612/Adamin-Clone/master/dist/adamin_clone.min.js
+[max]: https://raw.github.com/pensive612/Adamin-Clone/master/dist/adamin_clone.js
 
 In your web page:
 
