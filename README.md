@@ -12,6 +12,8 @@ Instead of creating 25 ```<li>``` elements in an ```<ul>```, I do this:
 </ul>
 ```
 
+Although you will most likely only be using this plugin in a mocking/development environment.  It is under 1k and 600 bytes gzipped.
+
 It is tested using [qunit](http://qunitjs.com/) and built using [grunt](https://github.com/cowboy/grunt).
 
 ## Getting Started
