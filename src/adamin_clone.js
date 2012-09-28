@@ -6,18 +6,32 @@
  * Licensed under the MIT, GPL licenses.
  */
 
-(function($) {
+/*
+Title: adaminClone
+Desc: Plugin description
+Created: 2012-Sep-28
+URL: https://github.com/pensive612
+*/
 
-  var adaminClone = {
-    init: function(el, config) {
-      this.config = $.extend({}, $.fn.adaminClone.defaults, config);
+(function(window, document, $, undefined) {
+  var adaminClone = function(elem, options) {
+    this.elem = elem;
+    this.$elem = $(elem);
+    this.options = options;
+    this.metadata = this.$elem.data('adamin-options');
+  };
 
-      this.el = el;
-      this.$el = $(el);
-
-      this.getCloneValue(this.$el);
+  adaminClone.prototype = {
+    defaults: {
+      cloneCap: 100
     },
+    init: function() {
+      this.config = $.extend({}, this.defaults, this.options, this.metadata);
 
+      this.getCloneValue(this.$elem);
+
+      return this;
+    },
     getCloneValue: function(elem) {
       var configCap = this.config.cloneCap;
       var cloneValue = elem.data('clone');
@@ -26,7 +40,7 @@
 
       // if data-clone value is valid, send to clone function
       if ( cloneValue && (cloneValue < configCap) ) {
-        this.cloneItem(this.$el, cloneValue);
+        this.cloneItem(this.$elem, cloneValue);
 
       // otherwise, return false
       } else {
@@ -38,7 +52,6 @@
         return false;
       }
     },
-
     cloneItem: function(elem, value) {
       var elemClone;
 
@@ -49,24 +62,21 @@
         elemClone.insertAfter(elem);
       }
     }
-
   };
 
-  $.fn.adaminClone = function(config, callback) {
-    var obj = Object.create(adaminClone);
+  adaminClone.defaults = adaminClone.prototype.defaults;
+
+  $.fn.adaminClone = function(options, callback) {
 
     if (typeof callback == 'function') {
       callback.call(this);
     }
 
     return this.each(function() {
-      obj.init(this, config);
+      new adaminClone(this, options).init();
     });
-
   };
 
-  $.fn.adaminClone.defaults = {
-    cloneCap: 100
-  };
+  window.adaminClone = adaminClone;
 
-}(jQuery));
+})(window, document, jQuery);
