@@ -8,14 +8,14 @@
  */
 
 (function(window, document, $, undefined) {
-  var adaminClone = function(elem, options) {
+  var AdaminClone = function(elem, options) {
     this.elem = elem;
     this.$elem = $(elem);
     this.options = options;
     this.metadata = this.$elem.data('adamin-options');
   };
 
-  adaminClone.prototype = {
+  AdaminClone.prototype = {
     defaults: {
       cloneCap: 100
     },
@@ -58,19 +58,19 @@
     }
   };
 
-  adaminClone.defaults = adaminClone.prototype.defaults;
+  AdaminClone.defaults = AdaminClone.prototype.defaults;
 
   $.fn.adaminClone = function(options, callback) {
 
-    if (typeof callback == 'function') {
+    if (typeof callback === 'function') {
       callback.call(this);
     }
 
     return this.each(function() {
-      new adaminClone(this, options).init();
+      new AdaminClone(this, options).init();
     });
   };
 
-  window.adaminClone = adaminClone;
+  window.AdaminClone = AdaminClone;
 
 })(window, document, jQuery);
