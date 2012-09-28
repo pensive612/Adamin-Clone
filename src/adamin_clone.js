@@ -30,7 +30,8 @@
       var configCap = this.config.cloneCap;
       var cloneValue = elem.data('clone');
 
-      cloneValue = (parseInt(cloneValue, 10) - 1);
+      // parse data-clone value
+      cloneValue = this.parseCloneValue(cloneValue);
 
       // if data-clone value is valid, send to clone function
       if ( cloneValue && (cloneValue < configCap) ) {
@@ -45,6 +46,10 @@
 
         return false;
       }
+    },
+    parseCloneValue: function(value) {
+      var cloneValue = (parseInt(value, 10) - 1);
+      return cloneValue;
     },
     cloneItem: function(elem, value) {
       var elemClone;
