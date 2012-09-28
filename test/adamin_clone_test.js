@@ -26,6 +26,7 @@
     setup: function() {
       this.testLi = $('.test-li');
       this.testLiNone = $('.test-li-none');
+      this.testLiBig = $('.test-li-big');
       this.testData = $('data-clone');
     }
   });
@@ -60,12 +61,35 @@
     ok(this.testLi.next().hasClass('clone-1'));
   });
 
-  test('it should increment the classes of clones', 1, function() {
+  test('it should increment the classes of clones', 3, function() {
     var parentContainer = this.testLi.parent();
     this.testLi.adaminClone();
+    ok($('li:eq(1)', parentContainer).hasClass('clone-1'));
+    ok($('li:eq(2)', parentContainer).hasClass('clone-2'));
     ok($('li:eq(3)', parentContainer).hasClass('clone-3'));
   });
 
+  test('it should not allow clone value over 100 by default', 1, function() {
+    this.testLiBig.adaminClone();
+    strictEqual(this.testLiBig.parent().children().length, 1, 'should equal 1');
+  });
+
+  test('should allow you to override clone value cap', 1, function() {
+    this.testLiBig.adaminClone({
+      cloneCap: 105
+    });
+
+    strictEqual(this.testLiBig.parent().children().length, 103, 'should equal 103 items');
+  });
+
+  test('callback should run after clone occurs', 1, function() {
+    this.testLi.adaminClone({}, function() {
+      this.parent().children().remove();
+      window.console.log(this);
+    });
+
+    strictEqual(this.testLi.parent().children().length, 0, 'there should be no elements');
+  });
   
 
 }(jQuery));
