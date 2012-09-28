@@ -4,14 +4,8 @@
  *
  * Copyright (c) 2012 Adam L.
  * Licensed under the MIT, GPL licenses.
+ * Created: 2012-Sep
  */
-
-/*
-Title: adaminClone
-Desc: Plugin description
-Created: 2012-Sep-28
-URL: https://github.com/pensive612
-*/
 
 (function(window, document, $, undefined) {
   var adaminClone = function(elem, options) {
