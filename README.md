@@ -38,7 +38,7 @@ In your web page:
 ```
 
 ## Examples
-##### Standard Implementation
+#### Standard Implementation
 This will load the plugin and clone any element that has a ```data-clone``` attribute with a number value.
 
 ```html
@@ -54,7 +54,18 @@ This will load the plugin and clone any element that has a ```data-clone``` attr
 </ul>
 ```
 
-##### Adding a Callback
+you can use table rows, divs or anything you like.
+```html
+<table>
+  <tr data-clone="30">
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+```
+
+#### Adding a Callback
 You might want to add a callback after the items are cloned.  Here is how:
 
 ```javascript
@@ -64,7 +75,7 @@ $('data-clone').adaminClone({}, function() {
 });
 ```
 
-##### Overriding the Data-Cap Option
+#### Overriding the Data-Cap Option
 If you want to clone more than a 100 items to an element.  You need to set a higher clone-cap value.  You can do this in a couple ways.
 
 In the plugin call:
