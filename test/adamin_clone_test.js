@@ -40,6 +40,12 @@
     strictEqual(this.testData.adaminClone(), this.testData, 'should be chaninable');
   });
 
+  test('it should not add items if there is no valid data-clone value', 1, function() {
+    var parentContainer = this.testLiNone.parent();
+    this.testLiNone.adaminClone();
+    strictEqual(parentContainer.children('li').length, 1, 'should equal itself only');
+  });
+
   test('it should return true if contains valid data-clone attribute', 1, function() {
     ok(this.testData.adaminClone());
   });
@@ -48,12 +54,6 @@
     var parentContainer = this.testLi.parent();
     this.testLi.adaminClone();
     strictEqual(parentContainer.children('li').length, 4, 'should equal 4 items');
-  });
-
-  test('it should not add items if there is no valid data-clone value', 1, function() {
-    var parentContainer = this.testLiNone.parent();
-    this.testLiNone.adaminClone();
-    strictEqual(parentContainer.children('li').length, 1, 'should equal itself only');
   });
 
   test('it should add classes to the clones', 1, function() {
@@ -89,6 +89,12 @@
     });
 
     strictEqual(this.testLi.parent().children().length, 0, 'there should be no elements');
+  });
+
+  test('it should allow cap to be overridden in data-clone-cap', 1, function() {
+    this.testLiBig.attr('data-clone-cap', '{"cloneCap":"200"}');
+    this.testLiBig.adaminClone();
+    strictEqual(this.testLiBig.parent().children().length, 103, 'should equal 103');
   });
   
 

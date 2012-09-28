@@ -12,7 +12,7 @@
     this.elem = elem;
     this.$elem = $(elem);
     this.options = options;
-    this.metadata = this.$elem.data('adamin-options');
+    this.metadata = this.$elem.data('clone-cap');
   };
 
   AdaminClone.prototype = {
@@ -78,4 +78,4 @@
 
   window.AdaminClone = AdaminClone;
 
-})(window, document, jQuery);
+}(window, document, jQuery));
