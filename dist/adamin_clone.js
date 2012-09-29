@@ -1,4 +1,4 @@
-/*! Adamin Clone - v0.1.0 - 2012-09-28
+/*! Adamin Clone - v0.1.0 - 2012-09-29
 * https://github.com/pensive612/Adamin-Clone
 * Copyright (c) 2012 Adam L.; Licensed MIT, GPL */
 
@@ -43,16 +43,16 @@
       }
     },
     parseCloneValue: function(value) {
-      var cloneValue = (parseInt(value, 10) - 1);
+      var cloneValue = parseInt(value, 10);
       return cloneValue;
     },
     cloneItem: function(elem, value) {
       var elemClone;
 
-      for (var i = value; i >= 0; i--) {
+      for (var i = value; i > 0; i--) {
         elemClone = elem.clone(true);
         elemClone.removeAttr('data-clone');
-        elemClone.addClass('clone-' + (i + 1));
+        elemClone.addClass('clone-' + i);
         elemClone.insertAfter(elem);
       }
     }
