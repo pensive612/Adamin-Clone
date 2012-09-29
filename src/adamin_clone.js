@@ -8,14 +8,14 @@
  */
 
 (function(window, document, $, undefined) {
-  var AdaminClone = function(elem, options) {
+  var Project = function(elem, options) {
     this.elem = elem;
     this.$elem = $(elem);
     this.options = options;
     this.metadata = this.$elem.data('clone-cap');
   };
 
-  AdaminClone.prototype = {
+  Project.prototype = {
     defaults: {
       cloneCap: 100
     },
@@ -63,7 +63,7 @@
     }
   };
 
-  AdaminClone.defaults = AdaminClone.prototype.defaults;
+  Project.defaults = Project.prototype.defaults;
 
   $.fn.adaminClone = function(options, callback) {
 
@@ -72,10 +72,10 @@
     }
 
     return this.each(function() {
-      new AdaminClone(this, options).init();
+      new Project(this, options).init();
     });
   };
 
-  window.AdaminClone = AdaminClone;
+  window.Project = Project;
 
 }(window, document, jQuery));
