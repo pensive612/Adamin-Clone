@@ -40,7 +40,9 @@
       // otherwise, return false
       } else {
 
-        if (cloneValue > configCap) {
+        if (!cloneValue) {
+          window.console.log('Clone Value does not appear to be valid.  Make sure it is only a number.  ie.  data-clone="6" ');
+        } else if (cloneValue > configCap) {
           window.console.log('Your data-clone value is too high for the defaults.  Please check documentation to override cap in config.');
         }
 
