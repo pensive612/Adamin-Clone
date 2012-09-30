@@ -1,6 +1,6 @@
 # Adamin Clone
 
-[![Build Status](https://secure.travis-ci.org/[pensive612]/[Adamin-Clone].png)](http://travis-ci.org/[pensive612]/[Adamin-Clone])
+[![Build Status](https://secure.travis-ci.org/pensive612/Adamin-Clone.png)](http://travis-ci.org/[pensive612]/[Adamin-Clone])
 
 A simple cloning plugin for rapid prototyping of mocks.
 
