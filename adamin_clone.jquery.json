@@ -1,7 +1,7 @@
 {
   "name": "adamin_clone",
   "title": "Adamin Clone",
-  "description": "Easy cloning plugins for quick mocking.",
+  "description": "Simple cloning plugin for rapid prototyping of mocks.",
   "version": "0.1.0",
   "homepage": "https://github.com/pensive612/Adamin-Clone",
   "author": {

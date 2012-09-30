@@ -1,6 +1,6 @@
 # Adamin Clone
 
-A really easy way to clone elements for quick mocking.
+A simple cloning plugin for rapid prototyping of mocks.
 
 Instead of creating 25 ```<li>``` elements in a ```<ul>```, I do this:
 
@@ -54,7 +54,7 @@ This will load the plugin and clone any element that has a ```data-clone``` attr
 </ul>
 ```
 
-you can use table rows, divs or anything you like.
+you can use table rows, divs or anything you like:
 ```html
 <table>
   <tr data-clone="30">
@@ -65,13 +65,23 @@ you can use table rows, divs or anything you like.
 </table>
 ```
 
+you can even nest cloned elements:
+```html
+<table data-clone="3">
+  <tr data-clone="10">
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
 #### Adding a Callback
-You might want to add a callback after the items are cloned.  Here is how:
+You might want to add a callback after the items are cloned.  Just use the standard convention:
 
 ```javascript
 $('data-clone').adaminClone({}, function() {
   // Put your callback logic inside the function
-  window.console.log('My items were just cloned!');
+  window.console.log($(this) + ' was just cloned!');
 });
 ```
 
@@ -85,7 +95,7 @@ $('data-clone').adaminClone({
 });
 ```
 
-Or you can do it in the html directly, if its only for 1 item:
+Or you can do it in the html directly, if you want to override individually:
 ```html
 <li data-clone="120" data-clone-cap='{"cloneCap":"200"}'>My item</li>
 ```
@@ -97,7 +107,7 @@ Currently, the behavior of jQuery .clone() is to clone the element 1 time.  And 
 
 This plugin instead, allows you duplicate the element any number of times, and insert them directly after the cloned element.
 
-You'll notice it also creates enumerated classes if you need to target any specific clones.  Each cloned element should have a class of 'clone-i'. 
+The plugin also creates enumerated classes if you need to target any specific clones.  Each cloned element should have a class of 'clone-i'. 
 
 It also passes the 'true' argument, so all clones retain any events bound to the original element.
 
@@ -109,7 +119,7 @@ And lastly, you can utilize a callback function after the plugin is run.
 
 **See 'Examples' for all usage.**
 
-Although you will most likely only be using this plugin in a mocking/development environment.  It is under 1k and 600 bytes gzipped.
+Although you will most likely only be using this plugin in a mocking/development environment.  It is around 1k and 600 bytes gzipped.
 
 It is tested using [qunit](http://qunitjs.com/) and built using [grunt](https://github.com/cowboy/grunt).
 
