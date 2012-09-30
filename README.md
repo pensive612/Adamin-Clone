@@ -74,6 +74,7 @@ you can even nest cloned elements:
     <td></td>
   </tr>
 </table>
+```
 
 #### Adding a Callback
 You might want to add a callback after the items are cloned.  Just use the standard convention:
