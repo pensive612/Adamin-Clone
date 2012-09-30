@@ -1,4 +1,4 @@
-/*! Adamin Clone - v0.1.0 - 2012-09-29
+/*! Adamin Clone - v0.1.0 - 2012-09-30
 * https://github.com/pensive612/Adamin-Clone
 * Copyright (c) 2012 Adam L.; Licensed MIT, GPL */
 
@@ -15,6 +15,8 @@
       cloneCap: 100
     },
     init: function() {
+
+      // Set config statements to override, all the way to data-attribute
       this.config = $.extend({}, this.defaults, this.options, this.metadata);
 
       this.getCloneValue(this.$elem);
@@ -35,7 +37,9 @@
       // otherwise, return false
       } else {
 
-        if (cloneValue > configCap) {
+        if (!cloneValue) {
+          window.console.log('data-clone value does not appear to be valid.  Make sure it only contains a number.  ie.  data-clone="6" ');
+        } else if (cloneValue > configCap) {
           window.console.log('Your data-clone value is too high for the defaults.  Please check documentation to override cap in config.');
         }
 
@@ -63,9 +67,6 @@
 
   $.fn.adaminClone = function(options, callback) {
 
-    if (typeof callback === 'function') {
-      callback.call(this);
-    }
 
     // Get depth of the element in the DOM to allow recursive cloning
     return this.sort(function(a, b) {
@@ -73,7 +74,14 @@
       var vb = $(b).parents('[data-clone]').length;
       return vb - va;
     }).each(function() {
+      
+      // Begin plugin
       new Project(this, options).init();
+
+      // run optional callback on (this)
+      if (typeof callback === 'function') {
+        callback.call(this);
+      }
     });
 
   };
