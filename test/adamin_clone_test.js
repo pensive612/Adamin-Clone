@@ -42,8 +42,8 @@
 
   test('it should not add items if there is no valid data-clone value', 1, function() {
     var parentContainer = this.testLiNone.parent();
-    this.testLiNone.adaminClone();
-    strictEqual(parentContainer.children('li').length, 1, 'should equal itself only');
+    $('li', parentContainer).adaminClone();
+    strictEqual(parentContainer.children('li').length, 3, 'should equal itself only');
   });
 
   test('it should return true if contains valid data-clone attribute', 1, function() {
