@@ -84,11 +84,10 @@
 
   test('callback should run after clone occurs', 1, function() {
     this.testLi.adaminClone({}, function() {
-      this.parent().children().remove();
-      window.console.log(this);
+      $(this).siblings().remove();
     });
 
-    strictEqual(this.testLi.parent().children().length, 0, 'there should be no elements');
+    strictEqual($(this).siblings().length, 0, 'there should be no elements');
   });
 
   test('it should allow cap to be overridden in data-clone-cap', 1, function() {

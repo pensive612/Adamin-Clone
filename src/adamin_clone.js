@@ -68,9 +68,6 @@
 
   $.fn.adaminClone = function(options, callback) {
 
-    if (typeof callback === 'function') {
-      callback.call(this);
-    }
 
     // Get depth of the element in the DOM to allow recursive cloning
     return this.sort(function(a, b) {
@@ -78,7 +75,14 @@
       var vb = $(b).parents('[data-clone]').length;
       return vb - va;
     }).each(function() {
+      
+      // Begin plugin
       new Project(this, options).init();
+
+      // run optional callback on (this)
+      if (typeof callback === 'function') {
+        callback.call(this);
+      }
     });
 
   };
