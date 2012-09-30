@@ -1,4 +1,4 @@
-/*! Adamin Clone - v0.1.0 - 2012-09-30
+/*! Adamin Clone - v1.0 - 2012-09-30
 * https://github.com/pensive612/Adamin-Clone
 * Copyright (c) 2012 Adam L.; Licensed MIT, GPL */
 

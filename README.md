@@ -9,7 +9,7 @@ Instead of creating 25 ```<li>``` elements in a ```<ul>```, I do this:
   <li data-clone="25">Test item</li>
 </ul>
 ```
-
+You can play with a fiddle of the plugin [here](http://jsfiddle.net/adamin/u46Ps/15/).
 
 ## Getting Started
 Download the [production version][min] or the [development version][max].
