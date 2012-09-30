@@ -56,9 +56,10 @@
 
       for (var i = value; i > 0; i--) {
         elemClone = elem.clone(true);
-        elemClone.removeAttr('data-clone');
-        elemClone.addClass('clone-' + i);
-        elemClone.insertAfter(elem);
+        elemClone
+          .removeAttr('data-clone')
+          .addClass('clone-' + i)
+          .insertAfter(elem);
       }
     }
   };
@@ -71,9 +72,15 @@
       callback.call(this);
     }
 
-    return this.each(function() {
+    // Get depth of the element in the DOM to allow recursive cloning
+    return this.sort(function(a, b) {
+      var va = $(a).parents('[data-clone]').length;
+      var vb = $(b).parents('[data-clone]').length;
+      return vb - va;
+    }).each(function() {
       new Project(this, options).init();
     });
+
   };
 
   window.Project = Project;

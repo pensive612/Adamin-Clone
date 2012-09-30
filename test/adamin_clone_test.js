@@ -37,7 +37,7 @@
 
   test('is chainable', 1, function() {
     // Not a bad test to run on collection methods.
-    strictEqual(this.testData.adaminClone(), this.testData, 'should be chaninable');
+    strictEqual(this.testData.adaminClone(), this.testData, 'should be chainable');
   });
 
   test('it should not add items if there is no valid data-clone value', 1, function() {
