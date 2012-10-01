@@ -1,7 +1,7 @@
 {
   "name": "Adamin-Clone",
   "version": "1.0.0",
-  "main": ["./dist/adamin_clone.js"],
+  "main": ["./dist/adamin_clone.min.js"],
   "dependencies": {
     "jquery": "~1.7.2"
   }
