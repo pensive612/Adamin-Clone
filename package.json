@@ -1,6 +1,7 @@
 {
-  "name": "jquery-plugin",
-  "version": "0.0.0-ignored",
+  "name": "Adamin-Clone",
+  "version": "1.0.0-ignored",
+  "description": "A really easy way to quickly clone elements when prototyping or creating mocks.",
   "engines": {
     "node": ">= 0.6.0"
   },
@@ -15,5 +16,46 @@
   },
   "scripts": {
     "test": "grunt travis --verbose"
-  }
+  },
+  "jam": {
+    "dependencies": {
+      "jquery": ">1.6.2"
+    },
+    "main": "jam/adaminclone/adamin_clone.js",
+    "include": [
+      "dist/adamin_clone.js",
+      "dist/adamin_clone.min.js",
+      "README.md"
+    ],
+    "shim": {
+      "deps": ["jquery"]
+    }
+  },
+  "main": "dist/adamin_clone.min.js",
+  "keywords": [
+    "rapid prototyping",
+    "mock",
+    "clone",
+    "duplicator"
+  ],
+  "maintainers": [
+    {
+      "name": "Adam L",
+      "email": "github@adamin.net",
+      "web": "http://www.adamin.net" 
+    } 
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "git", 
+      "url": "git://github.com/pensive612/Adamin-Clone.git"
+    }
+  ],
+  "github": "https://github.com/pensive612/Adamin-Clone"
 }

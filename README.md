@@ -16,7 +16,9 @@ You can play with a fiddle of the plugin [here](http://jsfiddle.net/adamin/u46Ps
 ## Getting Started
 Download the [production version][min] or the [development version][max].
 
-Adamin-Clone is also available on Twitter Bower by typing ```bower install adaminclone```
+Adamin-Clone is also available on:
+- Twitter Bower by typing ```bower install adaminclone```
+- JamJS by typing ```jam install Adamin-Clone```
 
 [min]: https://raw.github.com/pensive612/Adamin-Clone/master/dist/adamin_clone.min.js
 [max]: https://raw.github.com/pensive612/Adamin-Clone/master/dist/adamin_clone.js
