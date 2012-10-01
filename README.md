@@ -2,9 +2,9 @@
 
 [![Build Status](https://secure.travis-ci.org/pensive612/Adamin-Clone.png)](http://travis-ci.org/[pensive612]/[Adamin-Clone])
 
-A simple cloning plugin for rapid prototyping of mocks.
+A simple cloning plugin for rapid prototyping of mocks. 
 
-Instead of creating 25 ```<li>``` elements in a ```<ul>```, I do this:
+Instead of creating 25 ```<li>``` elements inside a ```<ul>```, you can do this:
 
 ```html
 <ul>
@@ -15,6 +15,8 @@ You can play with a fiddle of the plugin [here](http://jsfiddle.net/adamin/u46Ps
 
 ## Getting Started
 Download the [production version][min] or the [development version][max].
+
+Adamin-Clone is also available on Twitter Bower by typing ```bower install adaminclone```
 
 [min]: https://raw.github.com/pensive612/Adamin-Clone/master/dist/adamin_clone.min.js
 [max]: https://raw.github.com/pensive612/Adamin-Clone/master/dist/adamin_clone.js
