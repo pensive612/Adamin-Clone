@@ -16,10 +16,6 @@ You can play with a fiddle of the plugin [here](http://jsfiddle.net/adamin/u46Ps
 ## Getting Started
 Download the [production version][min] or the [development version][max].
 
-Adamin-Clone is also available on:
-- Twitter Bower by typing ```bower install adaminclone```
-- JamJS by typing ```jam install Adamin-Clone```
-
 [min]: https://raw.github.com/pensive612/Adamin-Clone/master/dist/adamin_clone.min.js
 [max]: https://raw.github.com/pensive612/Adamin-Clone/master/dist/adamin_clone.js
 
@@ -43,7 +39,7 @@ In your web page:
 </ul>
 ```
 
-## Examples
+## Examples <a name="examples"></a>
 #### Standard Implementation
 This will load the plugin and clone any element that has a ```data-clone``` attribute with a number value.
 
@@ -82,7 +78,7 @@ you can even nest cloned elements:
 </table>
 ```
 
-#### Adding a Callback
+#### Adding a Callback <a name="callback"></a>
 You might want to add a callback after the items are cloned.  Just use the standard convention:
 
 ```javascript
@@ -92,7 +88,7 @@ $('data-clone').adaminClone({}, function() {
 });
 ```
 
-#### Overriding the Data-Cap Option
+#### Overriding the Data-Cap Option <a name="cap"></a>
 If you want to clone more than a 100 items to an element.  You need to set a higher clone-cap value.  You can do this in a couple ways.
 
 In the plugin call:
@@ -120,15 +116,21 @@ It also passes the 'true' argument, so all clones retain any events bound to the
 
 For validation purposes, there is a default 'cap' of amount of times an element can be cloned.  It is set to ```'100'```. This is to prevent accidentally inserting a 1000 elements into the DOM.
 
-However, you can easily override this 'cap' value by changing the defaults of the plugin, or within a data-attribute directly in the element.  
+However, you can [easily override this 'cap' value](#cap) by changing the defaults of the plugin, or within a data-attribute directly in the element.  
 
-And lastly, you can utilize a callback function after the plugin is run.  
+And lastly, you can utilize a [callback function](#callback) after the plugin is run.  
 
-**See 'Examples' for all usage.**
+[**See 'Examples' for all usage.**](#examples)
 
 Although you will most likely only be using this plugin in a mocking/development environment.  It is around 1k and 600 bytes gzipped.
 
 It is tested using [qunit](http://qunitjs.com/) and built using [grunt](https://github.com/cowboy/grunt).
+
+## Package Managers
+Adamin-Clone is also available on the following package managers:
+- Twitter Bower by typing ```bower install adaminclone```
+- JamJS by typing ```jam install Adamin-Clone```
+
 
 ## License
 Copyright (c) 2012 Adam L.  
