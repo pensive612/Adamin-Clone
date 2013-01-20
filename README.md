@@ -2,7 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/pensive612/Adamin-Clone.png)](http://travis-ci.org/[pensive612]/[Adamin-Clone])
 
-A simple cloning plugin for rapid prototyping of mocks. 
+A simple cloning plugin for rapid prototyping of mocks.
 
 Instead of creating 25 ```<li>``` elements inside a ```<ul>```, you can do this:
 
@@ -29,7 +29,7 @@ In your web page:
 <!-- Call the plugin -->
 <script>
   jQuery(function($) {
-    $('data-clone').adaminClone(); // "adds plugin to any element that has data-clone attribute"
+    $('[data-clone]').adaminClone(); // "adds plugin to any element that has data-clone attribute"
   });
 </script>
 
@@ -46,7 +46,7 @@ This will load the plugin and clone any element that has a ```data-clone``` attr
 ```html
 <script>
   jQuery(function($) {
-    $('data-clone').adaminClone(); // "adds plugin to any element that has data-clone attribute"
+    $('[data-clone]').adaminClone(); // "adds plugin to any element that has data-clone attribute"
   });
 </script>
 
@@ -93,7 +93,7 @@ If you want to clone more than a 100 items to an element.  You need to set a hig
 
 In the plugin call:
 ```javascript
-$('data-clone').adaminClone({
+$('[data-clone]').adaminClone({
   cloneCap: 500 // put your new number value here
 });
 ```
@@ -104,21 +104,21 @@ Or you can do it in the html directly, if you want to override individually:
 ```
 
 ## Documentation
-This plugin is a utilization of the jquery [.clone()](http://api.jquery.com/clone/) method.  
+This plugin is a utilization of the jquery [.clone()](http://api.jquery.com/clone/) method.
 
 Currently, the behavior of jQuery .clone() is to clone the element 1 time.  And should be separately prepended/appended to a specified container.
 
 This plugin instead, allows you duplicate the element any number of times, and insert them directly after the cloned element.
 
-The plugin also creates enumerated classes if you need to target any specific clones.  Each cloned element should have a class of 'clone-i'. 
+The plugin also creates enumerated classes if you need to target any specific clones.  Each cloned element should have a class of 'clone-i'.
 
 It also passes the 'true' argument, so all clones retain any events bound to the original element.
 
 For validation purposes, there is a default 'cap' of amount of times an element can be cloned.  It is set to ```'100'```. This is to prevent accidentally inserting a 1000 elements into the DOM.
 
-However, you can [easily override this 'cap' value](#cap) by changing the defaults of the plugin, or within a data-attribute directly in the element.  
+However, you can [easily override this 'cap' value](#cap) by changing the defaults of the plugin, or within a data-attribute directly in the element.
 
-And lastly, you can utilize a [callback function](#callback) after the plugin is run.  
+And lastly, you can utilize a [callback function](#callback) after the plugin is run.
 
 [**See 'Examples' for all usage.**](#examples)
 
@@ -133,7 +133,7 @@ Adamin-Clone is also available on the following package managers:
 
 
 ## License
-Copyright (c) 2012 Adam L.  
+Copyright (c) 2012 Adam L.
 Licensed under the MIT, GPL licenses.
 
 ## Contributing
